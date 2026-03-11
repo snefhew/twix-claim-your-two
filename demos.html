@@ -168,7 +168,7 @@
       <div class="flink-screen">
         <div class="flink-statusbar"><div>15:32</div><div style="display:flex;gap:4px;font-size:10px;opacity:.5"><span>5G</span><span>🔋 64%</span></div></div>
         <div class="flink-header"><div class="flink-logo">FLINK</div><div class="flink-search">🔍 Search products...</div></div>
-        <div class="flink-banner" onclick="flashBanner(this)"><img src="img/dooh-noon.png" alt="Twix afternoon upgrade"><div class="flink-banner-tag">Sponsored · Twix</div></div>
+        <div class="flink-banner" onclick="flashBanner(this)"><img src="img/flink-ad.png" alt="Twix afternoon upgrade"><div class="flink-banner-tag">Sponsored · Twix</div></div>
         <div class="flink-body">
           <div class="flink-section-title">🍫 Snacks & Chocolate</div>
           <div class="flink-product">
@@ -219,7 +219,98 @@
     </div>
   </div>
 </div>
+<div class="divider"></div>
 
+<!-- NUDGING -->
+<div class="demo-section">
+  <p class="demo-label">Interest Phase — Ethical Nudging</p>
+  <h2 class="demo-title">Cialdini Nudging Showcase</h2>
+  <p class="demo-desc">Toggle each persuasion principle to see how it changes the product card. Every nudge includes an ethical assessment based on the Berdichevsky decision framework.</p>
+
+  <div style="display:flex;gap:32px;flex-wrap:wrap;align-items:flex-start;justify-content:center">
+
+    <!-- Product Card -->
+    <div style="width:300px;background:white;border-radius:16px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,0.3);position:relative" id="nudgeCard">
+      <div style="background:#e8006f;padding:8px 16px;font-size:10px;font-weight:700;color:white;letter-spacing:2px;text-transform:uppercase;display:none" id="nudge-urgency-bar">⏱ Free delivery ends in <span id="nudge-timer">4:59</span></div>
+      <div style="padding:20px;display:flex;gap:14px;align-items:center">
+        <div style="width:70px;height:90px;background:#f5f5f5;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative">
+          <img src="img/twix-product.png" alt="Twix" style="height:80px;object-fit:contain">
+          <div style="position:absolute;top:-6px;right:-6px;background:#ff4444;color:white;font-size:9px;font-weight:700;padding:3px 7px;border-radius:10px;display:none" id="nudge-scarcity-badge">2 left!</div>
+        </div>
+        <div style="flex:1">
+          <div style="font-size:14px;font-weight:700;color:#222">Twix Chocolate Bar</div>
+          <div style="font-size:11px;color:#888;margin-top:2px">Caramel & Cookie · 2 bars</div>
+          <div style="font-size:11px;color:#e8006f;margin-top:4px;display:none" id="nudge-social-text">1.247 people ordered this today</div>
+          <div style="font-size:11px;color:#6B46C1;margin-top:4px;display:none" id="nudge-authority-text">Recommended based on your profile</div>
+          <div style="font-size:15px;font-weight:700;color:#222;margin-top:6px">€1,29</div>
+          <div style="font-size:11px;color:#22c55e;font-weight:600;margin-top:2px;display:none" id="nudge-reciprocity-text">+ FREE second Twix on first order!</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toggles -->
+    <div style="width:320px;display:flex;flex-direction:column;gap:12px">
+
+      <div style="background:rgba(255,245,225,0.04);border:1px solid rgba(255,255,255,0.08);padding:14px 16px;border-radius:8px;cursor:pointer" onclick="toggleNudge('scarcity',this)">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div style="display:flex;align-items:center;gap:10px">
+            <div style="width:36px;height:20px;background:rgba(255,255,255,0.1);border-radius:10px;position:relative;transition:background .3s" class="ntoggle"><div style="width:16px;height:16px;background:white;border-radius:50%;position:absolute;top:2px;left:2px;transition:left .3s" class="ndot"></div></div>
+            <span style="font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2px;color:var(--c)">Scarcity</span>
+          </div>
+          <span style="font-size:14px">🟡</span>
+        </div>
+        <div style="font-size:11px;color:rgba(255,245,225,0.35);margin-top:8px;line-height:1.5">"Only 2 left in stock." Creates urgency. Ethical if true, manipulative if fabricated. Cialdini principle #6.</div>
+      </div>
+
+      <div style="background:rgba(255,245,225,0.04);border:1px solid rgba(255,255,255,0.08);padding:14px 16px;border-radius:8px;cursor:pointer" onclick="toggleNudge('social',this)">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div style="display:flex;align-items:center;gap:10px">
+            <div style="width:36px;height:20px;background:rgba(255,255,255,0.1);border-radius:10px;position:relative;transition:background .3s" class="ntoggle"><div style="width:16px;height:16px;background:white;border-radius:50%;position:absolute;top:2px;left:2px;transition:left .3s" class="ndot"></div></div>
+            <span style="font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2px;color:var(--c)">Social Proof</span>
+          </div>
+          <span style="font-size:14px">🟢</span>
+        </div>
+        <div style="font-size:11px;color:rgba(255,245,225,0.35);margin-top:8px;line-height:1.5">"1.247 people ordered this today." Reassures through group behavior. Generally ethical when data is real. Cialdini principle #3.</div>
+      </div>
+
+      <div style="background:rgba(255,245,225,0.04);border:1px solid rgba(255,255,255,0.08);padding:14px 16px;border-radius:8px;cursor:pointer" onclick="toggleNudge('authority',this)">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div style="display:flex;align-items:center;gap:10px">
+            <div style="width:36px;height:20px;background:rgba(255,255,255,0.1);border-radius:10px;position:relative;transition:background .3s" class="ntoggle"><div style="width:16px;height:16px;background:white;border-radius:50%;position:absolute;top:2px;left:2px;transition:left .3s" class="ndot"></div></div>
+            <span style="font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2px;color:var(--c)">Authority</span>
+          </div>
+          <span style="font-size:14px">🟡</span>
+        </div>
+        <div style="font-size:11px;color:rgba(255,245,225,0.35);margin-top:8px;line-height:1.5">"Recommended based on your profile." Uses algorithmic authority. Ethical if transparent about data use. Cialdini principle #5.</div>
+      </div>
+
+      <div style="background:rgba(255,245,225,0.04);border:1px solid rgba(255,255,255,0.08);padding:14px 16px;border-radius:8px;cursor:pointer" onclick="toggleNudge('urgency',this)">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div style="display:flex;align-items:center;gap:10px">
+            <div style="width:36px;height:20px;background:rgba(255,255,255,0.1);border-radius:10px;position:relative;transition:background .3s" class="ntoggle"><div style="width:16px;height:16px;background:white;border-radius:50%;position:absolute;top:2px;left:2px;transition:left .3s" class="ndot"></div></div>
+            <span style="font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2px;color:var(--c)">Urgency</span>
+          </div>
+          <span style="font-size:14px">🔴</span>
+        </div>
+        <div style="font-size:11px;color:rgba(255,245,225,0.35);margin-top:8px;line-height:1.5">"Free delivery ends in 4:59." Countdown timer creates FOMO. Often manipulative since timer resets. Cialdini principle #6 + dark pattern risk.</div>
+      </div>
+
+      <div style="background:rgba(255,245,225,0.04);border:1px solid rgba(255,255,255,0.08);padding:14px 16px;border-radius:8px;cursor:pointer" onclick="toggleNudge('reciprocity',this)">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div style="display:flex;align-items:center;gap:10px">
+            <div style="width:36px;height:20px;background:rgba(255,255,255,0.1);border-radius:10px;position:relative;transition:background .3s" class="ntoggle"><div style="width:16px;height:16px;background:white;border-radius:50%;position:absolute;top:2px;left:2px;transition:left .3s" class="ndot"></div></div>
+            <span style="font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2px;color:var(--c)">Reciprocity</span>
+          </div>
+          <span style="font-size:14px">🟢</span>
+        </div>
+        <div style="font-size:11px;color:rgba(255,245,225,0.35);margin-top:8px;line-height:1.5">"Free second Twix on first order." Giving something free triggers desire to return the favor. Ethical when the offer is genuine. Cialdini principle #1.</div>
+      </div>
+
+      <div style="text-align:center;padding:12px;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,245,225,0.25);margin-top:4px">🟢 Ethical · 🟡 Context-dependent · 🔴 Dark pattern risk</div>
+
+    </div>
+  </div>
+</div>
 <footer><p class="fc">Campaign demos by <a href="index.html">From The Void</a> — 2026</p></footer>
 
 <script>
@@ -240,6 +331,25 @@ function flashBanner(el){el.querySelector('img').style.filter='brightness(1.2)';
 // DOOH
 const dd={morning:{h:'08',m:'15',t:'Commuters',l:'Transit Hubs',tr:'07:00 – 12:00'},noon:{h:'15',m:'30',t:'Office Workers',l:'Business Districts',tr:'12:00 – 17:00'},evening:{h:'21',m:'45',t:'Entertainment Seekers',l:'Cinema & Nightlife',tr:'17:00 – 00:00'}};
 function setDooh(p,btn){document.querySelectorAll('.dooh-time-btn').forEach(b=>b.classList.remove('on'));btn.classList.add('on');document.querySelectorAll('.dooh-screen img').forEach(i=>{i.classList.remove('on');i.style.animation='none'});const img=document.getElementById('dooh-'+p);img.offsetHeight;img.style.animation='doohFade .6s ease';img.classList.add('on');const d=dd[p];document.getElementById('doohH').textContent=d.h;document.getElementById('doohM').textContent=d.m;document.getElementById('dTarget').textContent=d.t;document.getElementById('dLoc').textContent=d.l;document.getElementById('dTrig').textContent=d.tr}
+// Nudging
+const nudgeState={scarcity:false,social:false,authority:false,urgency:false,reciprocity:false};
+let timerInterval;
+function toggleNudge(type,el){
+  nudgeState[type]=!nudgeState[type];
+  const on=nudgeState[type];
+  const tog=el.querySelector('.ntoggle');
+  const dot=el.querySelector('.ndot');
+  if(on){tog.style.background='#00FFFF';dot.style.left='18px'}else{tog.style.background='rgba(255,255,255,0.1)';dot.style.left='2px'}
+  if(type==='scarcity')document.getElementById('nudge-scarcity-badge').style.display=on?'block':'none';
+  if(type==='social')document.getElementById('nudge-social-text').style.display=on?'block':'none';
+  if(type==='authority')document.getElementById('nudge-authority-text').style.display=on?'block':'none';
+  if(type==='reciprocity')document.getElementById('nudge-reciprocity-text').style.display=on?'block':'none';
+  if(type==='urgency'){
+    document.getElementById('nudge-urgency-bar').style.display=on?'block':'none';
+    if(on){let s=299;clearInterval(timerInterval);timerInterval=setInterval(()=>{s--;if(s<0)s=299;const m=Math.floor(s/60);const sec=s%60;document.getElementById('nudge-timer').textContent=m+':'+(sec<10?'0':'')+sec},1000)}
+    else{clearInterval(timerInterval)}
+  }
+}
 </script>
 </body>
 </html>
