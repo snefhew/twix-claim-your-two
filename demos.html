@@ -282,6 +282,8 @@
     <button class="hyper-btn on" onclick="setHyper('gamer',this)"><span class="hem">🎮</span> Gamer</button>
     <button class="hyper-btn" onclick="setHyper('student',this)"><span class="hem">📚</span> Student</button>
     <button class="hyper-btn" onclick="setHyper('office',this)"><span class="hem">💼</span> Office Worker</button>
+    <button class="hyper-btn" onclick="setHyper('fitness',this)"><span class="hem">💪</span> Fitness</button>
+<button class="hyper-btn" onclick="setHyper('nightowl',this)"><span class="hem">🌙</span> Night Owl</button>
   </div>
 
   <div class="hyper-display">
@@ -289,6 +291,8 @@
       <img src="img/hyper-gamer.png" alt="Gamer ad" id="hyper-gamer" class="on">
       <img src="img/hyper-student.png" alt="Student ad" id="hyper-student">
       <img src="img/hyper-office.png" alt="Office ad" id="hyper-office">
+      <img src="img/hyper-fitness.png" alt="Fitness ad" id="hyper-fitness">
+<img src="img/hyper-nightowl.png" alt="Night Owl ad" id="hyper-nightowl">
     </div>
     <div class="hyper-meta">
       <div class="hyper-meta-item"><div class="hyper-meta-label">Profile</div><div class="hyper-meta-value" id="hProfile">Gamer (18-24)</div></div>
@@ -348,7 +352,7 @@ const dd={morning:{h:'08',m:'15',t:'Commuters',l:'Transit Hubs',tr:'07:00 – 12
 function setDooh(p,btn){document.querySelectorAll('.dooh-time-btn').forEach(b=>b.classList.remove('on'));btn.classList.add('on');document.querySelectorAll('.dooh-screen img').forEach(i=>{i.classList.remove('on');i.style.animation='none'});const img=document.getElementById('dooh-'+p);img.offsetHeight;img.style.animation='doohFade .6s ease';img.classList.add('on');const d=dd[p];document.getElementById('doohH').textContent=d.h;document.getElementById('doohM').textContent=d.m;document.getElementById('dTarget').textContent=d.t;document.getElementById('dLoc').textContent=d.l;document.getElementById('dTrig').textContent=d.tr}
 
 // Hyper
-const hd={gamer:{p:'Gamer (18-24)',t:'Energetic, competitive',c:'Twitch, TikTok',tr:'In-game breaks'},student:{p:'Student (18-25)',t:'Warm, relatable',c:'Instagram, Spotify',tr:'Study breaks'},office:{p:'Office Worker (25-35)',t:'Playful, rewarding',c:'LinkedIn, Flink',tr:'3PM energy dip'}};
+const hd={gamer:{p:'Gamer (18-24)',t:'Energetic, competitive',c:'Twitch, TikTok',tr:'In-game breaks'},student:{p:'Student (18-25)',t:'Warm, relatable',c:'Instagram, Spotify',tr:'Study breaks'},office:{p:'Office Worker (25-35)',t:'Playful, rewarding',c:'LinkedIn, Flink',tr:'3PM energy dip'},fitness:{p:'Fitness (18-30)',t:'Rewarding, earned',c:'Instagram, Strava',tr:'Post-workout window'},nightowl:{p:'Night Owl (18-28)',t:'Moody, intimate',c:'TikTok, YouTube',tr:'After midnight'}};
 function setHyper(p,btn){document.querySelectorAll('.hyper-btn').forEach(b=>b.classList.remove('on'));btn.classList.add('on');document.querySelectorAll('.hyper-ad img').forEach(i=>{i.classList.remove('on');i.style.animation='none'});const img=document.getElementById('hyper-'+p);img.offsetHeight;img.style.animation='hyperFade .5s ease';img.classList.add('on');const d=hd[p];document.getElementById('hProfile').textContent=d.p;document.getElementById('hTone').textContent=d.t;document.getElementById('hChannel').textContent=d.c;document.getElementById('hTrigger').textContent=d.tr}
 </script>
 </body>
