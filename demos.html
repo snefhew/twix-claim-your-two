@@ -151,6 +151,8 @@
     .dooh-clock-time{font-size:36px}
     .ugc-feed{grid-template-columns:repeat(3,1fr)}
   }
+  @media(max-width:900px){.demo-section [style*="grid-template-columns:repeat(5"]{grid-template-columns:repeat(3,1fr)!important}}
+@media(max-width:500px){.demo-section [style*="grid-template-columns:repeat(5"]{grid-template-columns:repeat(2,1fr)!important}}
   @media(max-width:480px){.ugc-feed{grid-template-columns:repeat(2,1fr)}}
 
   footer{padding:36px;text-align:center;border-top:1px solid rgba(255,255,255,0.04)}.fc{font-size:11px;color:rgba(255,255,255,0.18);letter-spacing:1px}.fc a{color:var(--g);text-decoration:none;opacity:.4}
@@ -311,22 +313,53 @@
   <h2 class="demo-title">The #TwixTwice Challenge</h2>
   <p class="demo-desc">Users film their best "double moment" of the day. The campaign lives through the audience, not just the brand. Here's what the TikTok feed looks like.</p>
 
-  <div class="ugc-header">
-    <div class="ugc-hashtag">#TwixTwice</div>
-    <div class="ugc-stats">2.4M views · 12.8K videos · Trending</div>
+  <div style="text-align:center;margin-bottom:30px">
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(24px,4vw,36px);color:var(--g);letter-spacing:2px">#TwixTwice</div>
+    <div style="font-size:12px;color:rgba(255,245,225,0.35);letter-spacing:1px">2.4M views · 12.8K videos · Trending</div>
   </div>
 
-  <div class="ugc-feed">
-    <div class="ugc-card"><div class="ugc-card-inner"><img src="img/ugc-new-1.png" alt="UGC 1"><div class="tt-side"><div class="tt-avatar"></div><div class="tt-side-btn"><span class="tt-side-icon">♥</span><span class="tt-side-count">24.3K</span></div><div class="tt-side-btn"><span class="tt-side-icon">💬</span><span class="tt-side-count">847</span></div><div class="tt-side-btn"><span class="tt-side-icon">↗</span><span class="tt-side-count">Share</span></div></div><div class="tiktok-ui"><div class="tt-user">@goalday.max</div><div class="tt-desc">GOAAAL x2 🔥🍫 #TwixTwice</div><div class="tt-sound">♪ Twix - The Dopamine Drop</div></div></div></div>
-    <div class="ugc-card"><div class="ugc-card-inner"><img src="img/ugc-new-2.png" alt="UGC 2"><div class="tt-side"><div class="tt-avatar"></div><div class="tt-side-btn"><span class="tt-side-icon">♥</span><span class="tt-side-count">18.7K</span></div><div class="tt-side-btn"><span class="tt-side-icon">💬</span><span class="tt-side-count">432</span></div><div class="tt-side-btn"><span class="tt-side-icon">↗</span><span class="tt-side-count">Share</span></div></div><div class="tiktok-ui"><div class="tt-user">@cozyvibes.ella</div><div class="tt-desc">double comfort zone 😴🍫 #TwixTwice</div><div class="tt-sound">♪ Twix - The Dopamine Drop</div></div></div></div>
-    <div class="ugc-card"><div class="ugc-card-inner"><video src="img/ugc-video.mp4" autoplay loop muted playsinline></video><div class="tt-side"><div class="tt-avatar"></div><div class="tt-side-btn"><span class="tt-side-icon">♥</span><span class="tt-side-count">31.2K</span></div><div class="tt-side-btn"><span class="tt-side-icon">💬</span><span class="tt-side-count">1.2K</span></div><div class="tt-side-btn"><span class="tt-side-icon">↗</span><span class="tt-side-count">Share</span></div></div><div class="tiktok-ui"><div class="tt-user">@hoops.twice</div><div class="tt-desc">the shot AND the replay 🏀🔁 #TwixTwice</div><div class="tt-sound">♪ Twix - The Dopamine Drop</div></div></div></div>
-    <div class="ugc-card"><div class="ugc-card-inner"><img src="img/ugc-new-4.png" alt="UGC 4"><div class="tt-side"><div class="tt-avatar"></div><div class="tt-side-btn"><span class="tt-side-icon">♥</span><span class="tt-side-count">15.9K</span></div><div class="tt-side-btn"><span class="tt-side-icon">💬</span><span class="tt-side-count">298</span></div><div class="tt-side-btn"><span class="tt-side-icon">↗</span><span class="tt-side-count">Share</span></div></div><div class="tiktok-ui"><div class="tt-user">@parklife.max</div><div class="tt-desc">park bench privilege 🌳🍫 #TwixTwice</div><div class="tt-sound">♪ Twix - The Dopamine Drop</div></div></div></div>
-    <div class="ugc-card"><div class="ugc-card-inner"><img src="img/ugc-new-5.png" alt="UGC 5"><div class="tt-side"><div class="tt-avatar"></div><div class="tt-side-btn"><span class="tt-side-icon">♥</span><span class="tt-side-count">42.1K</span></div><div class="tt-side-btn"><span class="tt-side-icon">💬</span><span class="tt-side-count">2.1K</span></div><div class="tt-side-btn"><span class="tt-side-icon">↗</span><span class="tt-side-count">Share</span></div></div><div class="tiktok-ui"><div class="tt-user">@lvlup.snacks</div><div class="tt-desc">double bar double kill energy 🎮 #TwixTwice</div><div class="tt-sound">♪ Twix - The Dopamine Drop</div></div></div></div>
+  <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px;max-width:920px;margin:0 auto">
+
+    <div style="border-radius:8px;overflow:hidden;background:#111;border:1px solid rgba(255,255,255,0.06);position:relative">
+      <img src="img/ugc-new-1.png" alt="UGC" style="width:100%;aspect-ratio:9/16;object-fit:cover;object-position:center 30%;display:block">
+      <div style="position:absolute;top:10px;left:8px;display:flex;align-items:center;gap:5px;z-index:2"><img src="img/twix-product.png" style="height:22px;filter:drop-shadow(0 1px 3px rgba(0,0,0,0.5))"><span style="font-family:'Bebas Neue',sans-serif;font-size:11px;color:white;text-shadow:0 1px 4px rgba(0,0,0,0.7);letter-spacing:1px">#TwixTwice</span></div>
+      <div style="position:absolute;bottom:0;left:0;right:0;padding:8px 10px;background:linear-gradient(transparent,rgba(0,0,0,0.8));z-index:2"><div style="font-size:11px;font-weight:700;color:white">@goalday.max</div><div style="font-size:9px;color:rgba(255,255,255,0.6)">GOAAAL x2 🔥 · ♥ 24.3K</div></div>
+      <div style="position:absolute;right:6px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:12px;align-items:center;z-index:2"><div style="width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,var(--r),var(--g));border:2px solid white"></div><div style="text-align:center"><div style="font-size:14px">♥</div><div style="font-size:8px;color:white">24.3K</div></div><div style="text-align:center"><div style="font-size:14px">💬</div><div style="font-size:8px;color:white">847</div></div><div style="text-align:center"><div style="font-size:14px">↗</div><div style="font-size:8px;color:white">Share</div></div></div>
+    </div>
+
+    <div style="border-radius:8px;overflow:hidden;background:#111;border:1px solid rgba(255,255,255,0.06);position:relative">
+      <img src="img/ugc-new-2.png" alt="UGC" style="width:100%;aspect-ratio:9/16;object-fit:cover;object-position:center 20%;display:block">
+      <div style="position:absolute;top:10px;left:8px;display:flex;align-items:center;gap:5px;z-index:2"><img src="img/twix-product.png" style="height:22px;filter:drop-shadow(0 1px 3px rgba(0,0,0,0.5))"><span style="font-family:'Bebas Neue',sans-serif;font-size:11px;color:white;text-shadow:0 1px 4px rgba(0,0,0,0.7);letter-spacing:1px">#TwixTwice</span></div>
+      <div style="position:absolute;bottom:0;left:0;right:0;padding:8px 10px;background:linear-gradient(transparent,rgba(0,0,0,0.8));z-index:2"><div style="font-size:11px;font-weight:700;color:white">@cozyvibes.ella</div><div style="font-size:9px;color:rgba(255,255,255,0.6)">double comfort zone 😴 · ♥ 18.7K</div></div>
+      <div style="position:absolute;right:6px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:12px;align-items:center;z-index:2"><div style="width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,var(--r),var(--g));border:2px solid white"></div><div style="text-align:center"><div style="font-size:14px">♥</div><div style="font-size:8px;color:white">18.7K</div></div><div style="text-align:center"><div style="font-size:14px">💬</div><div style="font-size:8px;color:white">432</div></div><div style="text-align:center"><div style="font-size:14px">↗</div><div style="font-size:8px;color:white">Share</div></div></div>
+    </div>
+
+    <div style="border-radius:8px;overflow:hidden;background:#111;border:1px solid rgba(255,255,255,0.06);position:relative">
+      <img src="img/ugc-new-3.png" alt="UGC" style="width:100%;aspect-ratio:9/16;object-fit:cover;object-position:center 40%;display:block">
+      <div style="position:absolute;bottom:44px;left:8px;display:flex;align-items:center;gap:5px;z-index:2"><img src="img/twix-product.png" style="height:22px;filter:drop-shadow(0 1px 3px rgba(0,0,0,0.5))"><span style="font-family:'Bebas Neue',sans-serif;font-size:11px;color:white;text-shadow:0 1px 4px rgba(0,0,0,0.7);letter-spacing:1px">#TwixTwice</span></div>
+      <div style="position:absolute;bottom:0;left:0;right:0;padding:8px 10px;background:linear-gradient(transparent,rgba(0,0,0,0.8));z-index:2"><div style="font-size:11px;font-weight:700;color:white">@studybreak.duo</div><div style="font-size:9px;color:rgba(255,255,255,0.6)">page 214 + page twix 📚 · ♥ 31.2K</div></div>
+      <div style="position:absolute;right:6px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:12px;align-items:center;z-index:2"><div style="width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,var(--r),var(--g));border:2px solid white"></div><div style="text-align:center"><div style="font-size:14px">♥</div><div style="font-size:8px;color:white">31.2K</div></div><div style="text-align:center"><div style="font-size:14px">💬</div><div style="font-size:8px;color:white">1.2K</div></div><div style="text-align:center"><div style="font-size:14px">↗</div><div style="font-size:8px;color:white">Share</div></div></div>
+    </div>
+
+    <div style="border-radius:8px;overflow:hidden;background:#111;border:1px solid rgba(255,255,255,0.06);position:relative">
+      <img src="img/ugc-new-4.png" alt="UGC" style="width:100%;aspect-ratio:9/16;object-fit:cover;object-position:center 25%;display:block">
+      <div style="position:absolute;top:10px;left:8px;display:flex;align-items:center;gap:5px;z-index:2"><img src="img/twix-product.png" style="height:22px;filter:drop-shadow(0 1px 3px rgba(0,0,0,0.5))"><span style="font-family:'Bebas Neue',sans-serif;font-size:11px;color:white;text-shadow:0 1px 4px rgba(0,0,0,0.7);letter-spacing:1px">#TwixTwice</span></div>
+      <div style="position:absolute;bottom:0;left:0;right:0;padding:8px 10px;background:linear-gradient(transparent,rgba(0,0,0,0.8));z-index:2"><div style="font-size:11px;font-weight:700;color:white">@lvlup.snacks</div><div style="font-size:9px;color:rgba(255,255,255,0.6)">double bar energy 🎮 · ♥ 15.9K</div></div>
+      <div style="position:absolute;right:6px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:12px;align-items:center;z-index:2"><div style="width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,var(--r),var(--g));border:2px solid white"></div><div style="text-align:center"><div style="font-size:14px">♥</div><div style="font-size:8px;color:white">15.9K</div></div><div style="text-align:center"><div style="font-size:14px">💬</div><div style="font-size:8px;color:white">298</div></div><div style="text-align:center"><div style="font-size:14px">↗</div><div style="font-size:8px;color:white">Share</div></div></div>
+    </div>
+
+    <div style="border-radius:8px;overflow:hidden;background:#111;border:1px solid rgba(255,255,255,0.06);position:relative">
+      <img src="img/ugc-new-5.png" alt="UGC" style="width:100%;aspect-ratio:9/16;object-fit:cover;object-position:center 15%;display:block">
+      <div style="position:absolute;top:10px;left:8px;display:flex;align-items:center;gap:5px;z-index:2"><img src="img/twix-product.png" style="height:22px;filter:drop-shadow(0 1px 3px rgba(0,0,0,0.5))"><span style="font-family:'Bebas Neue',sans-serif;font-size:11px;color:white;text-shadow:0 1px 4px rgba(0,0,0,0.7);letter-spacing:1px">#TwixTwice</span></div>
+      <div style="position:absolute;bottom:0;left:0;right:0;padding:8px 10px;background:linear-gradient(transparent,rgba(0,0,0,0.8));z-index:2"><div style="font-size:11px;font-weight:700;color:white">@parklife.max</div><div style="font-size:9px;color:rgba(255,255,255,0.6)">park bench privilege 🌳 · ♥ 42.1K</div></div>
+      <div style="position:absolute;right:6px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:12px;align-items:center;z-index:2"><div style="width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,var(--r),var(--g));border:2px solid white"></div><div style="text-align:center"><div style="font-size:14px">♥</div><div style="font-size:8px;color:white">42.1K</div></div><div style="text-align:center"><div style="font-size:14px">💬</div><div style="font-size:8px;color:white">2.1K</div></div><div style="text-align:center"><div style="font-size:14px">↗</div><div style="font-size:8px;color:white">Share</div></div></div>
+    </div>
+
   </div>
 
-  <div class="ugc-challenge-brief">
-    <div class="ugc-challenge-title">How the challenge works</div>
-    <div class="ugc-challenge-desc">Film your best moment of the day. The twist: it happens twice. Use the Twix Glitch filter to "rewind" your moment and relive it. Post with #TwixTwice. The most creative double moments get featured on Twix's official channels and win a year's supply of Twix (that's two year's supplies of any other bar).</div>
+  <div style="max-width:600px;margin:30px auto 0;background:rgba(255,245,225,0.03);border:1px solid rgba(212,168,67,0.1);border-radius:8px;padding:24px;text-align:center">
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:2px;color:var(--c);margin-bottom:8px">How the challenge works</div>
+    <div style="font-size:12px;color:rgba(255,245,225,0.4);line-height:1.6">Film your best moment of the day. The twist: it happens twice. Use the Twix Glitch filter to "rewind" your moment and relive it. Post with #TwixTwice. The most creative double moments get featured on Twix's official channels and win a year's supply of Twix (that's two year's supplies of any other bar).</div>
   </div>
 </div>
 
