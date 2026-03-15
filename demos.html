@@ -311,27 +311,37 @@
 <div class="demo-section">
   <p class="demo-label">Desire Phase — User Generated Content</p>
   <h2 class="demo-title">The #TwixTwice Challenge</h2>
-  <p class="demo-desc">Users film their best "double moment" of the day. The campaign lives through the audience, not just the brand. The Twix Glitch filter adds an animated gold scanline that "doubles" the moment. Here's what the TikTok feed looks like.</p>
+  <p class="demo-desc">Users film their best "double moment" of the day. The Twix Glitch filter adds golden corner brackets and a subtle brand vignette. The campaign lives through the audience, not just the brand.</p>
 
   <style>
-    @keyframes ugcScan{0%{top:-20%}100%{top:120%}}
-    @keyframes ugcGlitch{0%,90%,100%{transform:none;opacity:1}92%{transform:translateX(-2px) skewX(-1deg);opacity:.8}94%{transform:translateX(2px) skewX(1deg);opacity:.9}96%{transform:translateX(-1px);opacity:.85}98%{transform:translateX(1px) skewX(-0.5deg);opacity:1}}
-    .ugc-card{border-radius:10px;overflow:hidden;background:#111;border:1px solid rgba(255,255,255,0.06);position:relative;cursor:pointer;transition:transform .3s}
+    @keyframes cornerPulse{0%,100%{opacity:.35}50%{opacity:.7}}
+    @keyframes ugcGlitch{0%,88%,100%{opacity:1;transform:translate(-50%,-50%)}90%{opacity:.6;transform:translate(-52%,-50%) skewX(2deg)}93%{opacity:.9;transform:translate(-49%,-51%)}96%{opacity:1;transform:translate(-50%,-50%)}}
+    @keyframes vignetteBreath{0%,100%{opacity:.5}50%{opacity:.7}}
+    .ugc-card{border-radius:10px;overflow:hidden;background:#111;position:relative;cursor:pointer;transition:transform .3s}
     .ugc-card:hover{transform:translateY(-3px)}
-    .ugc-card img{width:100%;aspect-ratio:9/16;object-fit:cover;display:block}
-    .ugc-scanline{position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,rgba(212,168,67,0.6),rgba(212,168,67,0.9),rgba(212,168,67,0.6),transparent);z-index:4;animation:ugcScan 3s linear infinite;pointer-events:none;box-shadow:0 0 12px rgba(212,168,67,0.4)}
-    .ugc-hashtag-overlay{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:5;animation:ugcGlitch 4s ease-in-out infinite;pointer-events:none;text-align:center}
-    .ugc-hashtag-text{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--g);letter-spacing:3px;text-shadow:0 0 12px rgba(200,16,46,1),0 0 6px rgba(200,16,46,0.8),0 2px 8px rgba(0,0,0,1),0 0 20px rgba(212,168,67,0.3);white-space:nowrap}
-    .ugc-hashtag-sub{font-family:'DM Sans',sans-serif;font-size:8px;color:rgba(255,255,255,0.5);letter-spacing:2px;text-transform:uppercase;margin-top:2px;text-shadow:0 1px 4px rgba(0,0,0,1)}
-    .ugc-tiktok-ui{position:absolute;bottom:0;left:0;right:0;padding:8px 10px;background:linear-gradient(transparent,rgba(0,0,0,0.9));z-index:3}
-    .ugc-tt-user{font-size:11px;font-weight:700;color:white}
-    .ugc-tt-desc{font-size:9px;color:rgba(255,255,255,0.55);margin-top:1px}
-    .ugc-tt-sound{font-size:8px;color:rgba(255,255,255,0.35);margin-top:2px}
-    .ugc-sidebar{position:absolute;right:5px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:10px;align-items:center;z-index:3}
-    .ugc-sb-avatar{width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,var(--r),var(--g));border:2px solid white}
-    .ugc-sb-btn{text-align:center}
-    .ugc-sb-icon{font-size:13px}
-    .ugc-sb-count{font-size:7px;color:white;display:block}
+    .ugc-card img.ugc-photo{width:100%;aspect-ratio:9/16;object-fit:cover;display:block}
+    .ugc-corners{position:absolute;inset:6px;z-index:5;pointer-events:none;animation:cornerPulse 3s ease-in-out infinite}
+    .ugc-corners::before,.ugc-corners::after{content:'';position:absolute;width:16px;height:16px;border-color:var(--g);border-style:solid}
+    .ugc-corners::before{top:0;left:0;border-width:2px 0 0 2px}
+    .ugc-corners::after{top:0;right:0;border-width:2px 2px 0 0}
+    .ugc-corners-b{position:absolute;inset:6px;z-index:5;pointer-events:none;animation:cornerPulse 3s ease-in-out infinite}
+    .ugc-corners-b::before,.ugc-corners-b::after{content:'';position:absolute;width:16px;height:16px;border-color:var(--g);border-style:solid}
+    .ugc-corners-b::before{bottom:0;left:0;border-width:0 0 2px 2px}
+    .ugc-corners-b::after{bottom:0;right:0;border-width:0 2px 2px 0}
+    .ugc-vig{position:absolute;inset:0;z-index:3;pointer-events:none;animation:vignetteBreath 4s ease-in-out infinite;background:radial-gradient(ellipse at top left,rgba(212,168,67,0.12) 0%,transparent 40%),radial-gradient(ellipse at bottom right,rgba(212,168,67,0.12) 0%,transparent 40%)}
+    .ugc-tag{position:absolute;left:50%;z-index:6;pointer-events:none;animation:ugcGlitch 6s ease-in-out infinite;text-align:center;white-space:nowrap}
+    .ugc-tag-t{font-family:'Bebas Neue',sans-serif;font-size:15px;color:var(--g);letter-spacing:3px;text-shadow:0 0 10px rgba(200,16,46,0.9),0 0 20px rgba(200,16,46,0.4),0 1px 2px rgba(0,0,0,1)}
+    .ugc-tag-s{font-size:5.5px;color:rgba(255,255,255,0.35);letter-spacing:1.5px;text-transform:uppercase;margin-top:1px;text-shadow:0 1px 3px rgba(0,0,0,1)}
+    .ugc-side{position:absolute;right:4px;bottom:46px;display:flex;flex-direction:column;gap:8px;align-items:center;z-index:4}
+    .ugc-ava{width:22px;height:22px;border-radius:50%;border:1.5px solid white;overflow:hidden;font-size:11px;display:flex;align-items:center;justify-content:center;background:#222}
+    .ugc-sb{text-align:center;line-height:1}
+    .ugc-sb i{font-size:12px;display:block;font-style:normal}
+    .ugc-sb span{font-size:6px;color:rgba(255,255,255,0.7);display:block;margin-top:1px}
+    .ugc-bot{position:absolute;bottom:0;left:0;right:0;padding:6px 8px;background:linear-gradient(transparent,rgba(0,0,0,0.9));z-index:4}
+    .ugc-bot-u{font-size:9px;font-weight:700;color:white}
+    .ugc-bot-d{font-size:7px;color:rgba(255,255,255,0.5);margin-top:1px}
+    .ugc-bot-s{font-size:6px;color:rgba(255,255,255,0.3);margin-top:1px;display:flex;align-items:center;gap:3px}
+    .ugc-disc{width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,var(--r),var(--g));flex-shrink:0}
   </style>
 
   <div style="text-align:center;margin-bottom:30px">
@@ -342,50 +352,55 @@
   <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px;max-width:920px;margin:0 auto">
 
     <div class="ugc-card">
-      <img src="img/ugc-new-1.png" alt="UGC" style="object-position:center 30%">
-      <div class="ugc-scanline" style="animation-delay:0s"></div>
-      <div class="ugc-hashtag-overlay" style="top:35%"><div class="ugc-hashtag-text">#TWIXTWICE</div><div class="ugc-hashtag-sub">× double your moment ×</div></div>
-      <div class="ugc-sidebar"><div class="ugc-sb-avatar"></div><div class="ugc-sb-btn"><span class="ugc-sb-icon">♥</span><span class="ugc-sb-count">24.3K</span></div><div class="ugc-sb-btn"><span class="ugc-sb-icon">💬</span><span class="ugc-sb-count">847</span></div><div class="ugc-sb-btn"><span class="ugc-sb-icon">↗</span><span class="ugc-sb-count">Share</span></div></div>
-      <div class="ugc-tiktok-ui"><div class="ugc-tt-user">@goalday.max</div><div class="ugc-tt-desc">GOAAAL x2 🔥🍫</div><div class="ugc-tt-sound">♪ Twix — The Dopamine Drop</div></div>
+      <img class="ugc-photo" src="img/ugc-new-1.png" style="object-position:center 30%">
+      <div class="ugc-corners" style="animation-delay:0s"></div><div class="ugc-corners-b" style="animation-delay:0s"></div>
+      <div class="ugc-vig" style="animation-delay:0s"></div>
+      <div class="ugc-tag" style="top:50%;animation-delay:0s"><div class="ugc-tag-t">#TWIXTWICE</div><div class="ugc-tag-s">double your moment</div></div>
+      <div class="ugc-side"><div class="ugc-ava">⚽</div><div class="ugc-sb"><i>♥</i><span>24.3K</span></div><div class="ugc-sb"><i>💬</i><span>847</span></div><div class="ugc-sb"><i>↗</i><span>Share</span></div></div>
+      <div class="ugc-bot"><div class="ugc-bot-u">@goalday.max</div><div class="ugc-bot-d">GOAAAL x2 🔥🍫</div><div class="ugc-bot-s"><span class="ugc-disc"></span> Twix — The Dopamine Drop</div></div>
     </div>
 
     <div class="ugc-card">
-      <img src="img/ugc-new-2.png" alt="UGC" style="object-position:center 20%">
-      <div class="ugc-scanline" style="animation-delay:0.6s"></div>
-      <div class="ugc-hashtag-overlay" style="top:18%"><div class="ugc-hashtag-text">#TWIXTWICE</div><div class="ugc-hashtag-sub">× double your moment ×</div></div>
-      <div class="ugc-sidebar"><div class="ugc-sb-avatar"></div><div class="ugc-sb-btn"><span class="ugc-sb-icon">♥</span><span class="ugc-sb-count">18.7K</span></div><div class="ugc-sb-btn"><span class="ugc-sb-icon">💬</span><span class="ugc-sb-count">432</span></div><div class="ugc-sb-btn"><span class="ugc-sb-icon">↗</span><span class="ugc-sb-count">Share</span></div></div>
-      <div class="ugc-tiktok-ui"><div class="ugc-tt-user">@cozyvibes.ella</div><div class="ugc-tt-desc">double comfort zone 😴🍫</div><div class="ugc-tt-sound">♪ Twix — The Dopamine Drop</div></div>
+      <img class="ugc-photo" src="img/ugc-new-2.png" style="object-position:center 20%">
+      <div class="ugc-corners" style="animation-delay:.6s"></div><div class="ugc-corners-b" style="animation-delay:.6s"></div>
+      <div class="ugc-vig" style="animation-delay:.8s"></div>
+      <div class="ugc-tag" style="top:15%;animation-delay:.4s"><div class="ugc-tag-t">#TWIXTWICE</div><div class="ugc-tag-s">double your moment</div></div>
+      <div class="ugc-side"><div class="ugc-ava">🎧</div><div class="ugc-sb"><i>♥</i><span>18.7K</span></div><div class="ugc-sb"><i>💬</i><span>432</span></div><div class="ugc-sb"><i>↗</i><span>Share</span></div></div>
+      <div class="ugc-bot"><div class="ugc-bot-u">@cozyvibes.ella</div><div class="ugc-bot-d">double comfort zone 😴🍫</div><div class="ugc-bot-s"><span class="ugc-disc"></span> Twix — The Dopamine Drop</div></div>
     </div>
 
     <div class="ugc-card">
-      <img src="img/ugc-new-3.png" alt="UGC" style="object-position:center 35%">
-      <div class="ugc-scanline" style="animation-delay:1.2s"></div>
-      <div class="ugc-hashtag-overlay" style="top:22%"><div class="ugc-hashtag-text">#TWIXTWICE</div><div class="ugc-hashtag-sub">× double your moment ×</div></div>
-      <div class="ugc-sidebar"><div class="ugc-sb-avatar"></div><div class="ugc-sb-btn"><span class="ugc-sb-icon">♥</span><span class="ugc-sb-count">31.2K</span></div><div class="ugc-sb-btn"><span class="ugc-sb-icon">💬</span><span class="ugc-sb-count">1.2K</span></div><div class="ugc-sb-btn"><span class="ugc-sb-icon">↗</span><span class="ugc-sb-count">Share</span></div></div>
-      <div class="ugc-tiktok-ui"><div class="ugc-tt-user">@studybreak.duo</div><div class="ugc-tt-desc">page 214 + page twix 📚🍫</div><div class="ugc-tt-sound">♪ Twix — The Dopamine Drop</div></div>
+      <img class="ugc-photo" src="img/ugc-new-3.png" style="object-position:center 35%">
+      <div class="ugc-corners" style="animation-delay:1.2s"></div><div class="ugc-corners-b" style="animation-delay:1.2s"></div>
+      <div class="ugc-vig" style="animation-delay:1.6s"></div>
+      <div class="ugc-tag" style="top:12%;animation-delay:.8s"><div class="ugc-tag-t">#TWIXTWICE</div><div class="ugc-tag-s">double your moment</div></div>
+      <div class="ugc-side"><div class="ugc-ava">📚</div><div class="ugc-sb"><i>♥</i><span>31.2K</span></div><div class="ugc-sb"><i>💬</i><span>1.2K</span></div><div class="ugc-sb"><i>↗</i><span>Share</span></div></div>
+      <div class="ugc-bot"><div class="ugc-bot-u">@studybreak.duo</div><div class="ugc-bot-d">page 214 + page twix 📚🍫</div><div class="ugc-bot-s"><span class="ugc-disc"></span> Twix — The Dopamine Drop</div></div>
     </div>
 
     <div class="ugc-card">
-      <img src="img/ugc-new-4.png" alt="UGC" style="object-position:center 30%">
-      <div class="ugc-scanline" style="animation-delay:1.8s"></div>
-      <div class="ugc-hashtag-overlay" style="top:60%"><div class="ugc-hashtag-text">#TWIXTWICE</div><div class="ugc-hashtag-sub">× double your moment ×</div></div>
-      <div class="ugc-sidebar"><div class="ugc-sb-avatar"></div><div class="ugc-sb-btn"><span class="ugc-sb-icon">♥</span><span class="ugc-sb-count">15.9K</span></div><div class="ugc-sb-btn"><span class="ugc-sb-icon">💬</span><span class="ugc-sb-count">298</span></div><div class="ugc-sb-btn"><span class="ugc-sb-icon">↗</span><span class="ugc-sb-count">Share</span></div></div>
-      <div class="ugc-tiktok-ui"><div class="ugc-tt-user">@lvlup.snacks</div><div class="ugc-tt-desc">double bar energy 🎮🍫</div><div class="ugc-tt-sound">♪ Twix — The Dopamine Drop</div></div>
+      <img class="ugc-photo" src="img/ugc-new-4.png" style="object-position:center 30%">
+      <div class="ugc-corners" style="animation-delay:1.8s"></div><div class="ugc-corners-b" style="animation-delay:1.8s"></div>
+      <div class="ugc-vig" style="animation-delay:2.4s"></div>
+      <div class="ugc-tag" style="top:72%;animation-delay:1.2s"><div class="ugc-tag-t">#TWIXTWICE</div><div class="ugc-tag-s">double your moment</div></div>
+      <div class="ugc-side"><div class="ugc-ava">🎮</div><div class="ugc-sb"><i>♥</i><span>15.9K</span></div><div class="ugc-sb"><i>💬</i><span>298</span></div><div class="ugc-sb"><i>↗</i><span>Share</span></div></div>
+      <div class="ugc-bot"><div class="ugc-bot-u">@lvlup.snacks</div><div class="ugc-bot-d">double bar energy 🎮🍫</div><div class="ugc-bot-s"><span class="ugc-disc"></span> Twix — The Dopamine Drop</div></div>
     </div>
 
     <div class="ugc-card">
-      <img src="img/ugc-new-5.png" alt="UGC" style="object-position:center 15%">
-      <div class="ugc-scanline" style="animation-delay:2.4s"></div>
-      <div class="ugc-hashtag-overlay" style="top:45%"><div class="ugc-hashtag-text">#TWIXTWICE</div><div class="ugc-hashtag-sub">× double your moment ×</div></div>
-      <div class="ugc-sidebar"><div class="ugc-sb-avatar"></div><div class="ugc-sb-btn"><span class="ugc-sb-icon">♥</span><span class="ugc-sb-count">42.1K</span></div><div class="ugc-sb-btn"><span class="ugc-sb-icon">💬</span><span class="ugc-sb-count">2.1K</span></div><div class="ugc-sb-btn"><span class="ugc-sb-icon">↗</span><span class="ugc-sb-count">Share</span></div></div>
-      <div class="ugc-tiktok-ui"><div class="ugc-tt-user">@parklife.max</div><div class="ugc-tt-desc">park bench privilege 🌳🍫</div><div class="ugc-tt-sound">♪ Twix — The Dopamine Drop</div></div>
+      <img class="ugc-photo" src="img/ugc-new-5.png" style="object-position:center 15%">
+      <div class="ugc-corners" style="animation-delay:2.4s"></div><div class="ugc-corners-b" style="animation-delay:2.4s"></div>
+      <div class="ugc-vig" style="animation-delay:3.2s"></div>
+      <div class="ugc-tag" style="top:65%;animation-delay:1.6s"><div class="ugc-tag-t">#TWIXTWICE</div><div class="ugc-tag-s">double your moment</div></div>
+      <div class="ugc-side"><div class="ugc-ava">🌳</div><div class="ugc-sb"><i>♥</i><span>42.1K</span></div><div class="ugc-sb"><i>💬</i><span>2.1K</span></div><div class="ugc-sb"><i>↗</i><span>Share</span></div></div>
+      <div class="ugc-bot"><div class="ugc-bot-u">@parklife.max</div><div class="ugc-bot-d">park bench privilege 🌳🍫</div><div class="ugc-bot-s"><span class="ugc-disc"></span> Twix — The Dopamine Drop</div></div>
     </div>
 
   </div>
 
   <div style="max-width:600px;margin:30px auto 0;background:rgba(255,245,225,0.03);border:1px solid rgba(212,168,67,0.1);border-radius:8px;padding:24px;text-align:center">
     <div style="font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:2px;color:var(--c);margin-bottom:8px">How the challenge works</div>
-    <div style="font-size:12px;color:rgba(255,245,225,0.4);line-height:1.6">Film your best moment of the day. The Twix Glitch filter adds a golden scanline that "rewinds" your moment — making it happen twice. Post with #TwixTwice using the branded sound. The most creative double moments get featured on Twix's official channels and win a year's supply of Twix (that's two year's supplies of any other bar).</div>
+    <div style="font-size:12px;color:rgba(255,245,225,0.4);line-height:1.6">Film your best moment of the day. The Twix Glitch filter adds golden corner brackets that frame your moment and a subtle brand glow. Post with #TwixTwice using the branded sound. The most creative double moments get featured on Twix's official channels and win a year's supply of Twix (that's two year's supplies of any other bar).</div>
   </div>
 </div>
 
